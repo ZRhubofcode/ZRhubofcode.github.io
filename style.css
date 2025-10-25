@@ -1,0 +1,160 @@
+:root {
+    --base-color: white;
+    --base-variant: #e8e9ed;
+    --text-color: #111528;
+    --hover-color: rgba(0, 0, 0, 0.50);
+    --reversehover-color: rgba(255, 255, 255, 0.5);
+    --shadow-color: 0 5px 10px rgba(0, 0, 0, 0.15);
+    --secondary-text: #232738;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+}
+
+.darkmode {
+    --base-color: #070b1d;
+    --base-variant: #101425;
+    --text-color: #ffffff;
+    --hover-color: rgba(255, 255, 255, 0.5);
+    --reversehover-color: rgba(0, 0, 0, 0.50);
+    --shadow-color: 0 5px 10px rgba(255, 255, 255, 0.15);
+    --secondary-text: #a4a5b8;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+}
+
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+#theme-switch svg {
+    fill: var(--primary-color);
+}
+
+#theme-switch svg:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block;
+}
+
+.skill-icons-container {
+    display: flex;
+    gap: 20px;
+}
+
+.skill-icons-container a {
+    background-color: var(--base-color);
+    fill: var(--text-color);
+    padding: 1em;
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-color);
+}
+
+.skill-icons-container a svg {
+    height: 32px;
+}
+
+.skill-icons-container a::before {
+    content: attr(skill-name);
+    position: absolute;
+    background-color: var(--text-color);
+    color: var(--base-color);
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 100px;
+    box-shadow: var(--shadow-color);
+    transform: translateY(-30px) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(0.25, 0.1, 0.15, 1.54);
+}
+
+.skill-icons-container a:hover {
+    background-color: var(--hover-color);
+}
+
+.skill-icons-container a svg:hover {
+    fill: var(--hover-color);
+}
+
+.skill-icons-container a::after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--hover-color);
+    transform: translateY(0) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(0.25, 0.1, 0.15, 1.54);
+}
+
+.skill-icons-container a:hover::before {
+    transform: translateY(-65px) rotate(0);
+    opacity: 1;
+}
+
+.skill-icons-container a:hover::after {
+    transform: translateY(-42px) rotate(0);
+    opacity: 1;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
+h2 {
+    font-family: "Roboto Mono", sans-serif;
+}
+
+.portrait {
+    float: right;
+    margin-left: 30px;
+}
+
+.card {
+    padding: 2em;
+    border: 10px solid rgb(75, 82, 92);
+    border-radius: 10px;
+    background-color: var(--base-color);
+    text-align: center;
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
